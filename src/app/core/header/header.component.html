@@ -1,1 +1,18 @@
-<p>header works!</p>
+<header>
+    <nav>
+        <a routerLink="" class="logo">TableTop Reviews</a>
+        <ul>
+            <li *ngIf='!loggedIn'><a routerLink="/user/register">Register</a></li>
+            <li *ngIf='!loggedIn'><a routerLink="/user/login">Login</a></li>
+            <li *ngIf='loggedIn'><a routerLink="/user/profile/1">Welcome --USERNAME--</a></li>
+            <li *ngIf='loggedIn'><a routerLink="/">Reviews</a></li>
+            <li><a routerLink="/about">About</a></li>
+            <li *ngIf='loggedIn'><a >Logout</a></li>
+        </ul>
+    </nav>
+</header>
+<div id="notification">
+    <p>
+        Some error message!
+    </p>
+</div>

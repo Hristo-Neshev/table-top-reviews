@@ -11,6 +11,12 @@ body {
     
 }
 
+.container {
+    max-width:1400px;
+    margin: 0 auto;
+}
+
+
 
 #main {
     width: 100%;
@@ -26,9 +32,9 @@ div.monopoly-background {
     width: 99%;
     z-index: 0;
 
-} 
+}
 
- div.monopoly-background:before {
+div.monopoly-background:before {
     content: "";
     position: absolute;
     left: 0; right: 0;
@@ -36,82 +42,71 @@ div.monopoly-background {
     background: rgba(0,0,0,0.4);
   }
 
-.welcomeGuest {
+.profile {
     border: 1px solid white;
     border-radius: 6px;
-    max-width: 800px;
-    margin:60px auto;
+    max-width: 1200px;
+    margin: 30px auto;
     position: relative;
-    height: 300px;
+    min-height: 300px;
+    
 }
-.welcomeGuest h1 {
+.profile h1 {
     padding-top: 15px;
-    text-align: center;
+    
     color: whitesmoke;
+    margin-left: 55px;
+    
 }
 
-.welcomeGuest  p {
+.profile img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    color: whitesmoke;
+  
+}
+
+.profile  p {
 font-style: italic;
 font-size: 16px;
 padding: 25px 20px;
 color: whitesmoke;
 }
 
-.recent-reviews {
-    border: 1px solid white;
-    border-radius: 6px;
-    max-width: 1200px;
-    height: 650px;
-    margin:60px auto;
-    position: relative;
-   
-}
-.recent-reviews h1 {
-    color: whitesmoke;
-    margin-top: 30px;
-    font-size: 18;
-    text-align: center;
-}
-
-
-
-
-ul.game-cover li{
-    border: 1px solid whitesmoke;
-    border-radius: 6px;
-    max-width: 300px;
+.profile #user-reviews-list {
+    color:whitesmoke;
+    margin: 20px auto;
+    width: 380px;
     float: left;
-    margin-right: 20px;
     
-    padding: 10px 45px;
-    list-style: none;
+}
+.profile #user-favorite-list {
+    color:whitesmoke;
+    margin: 45px auto;
+    width: 380px;
+    float: right;
 }
 
-ul.game-cover li {
-    color: whitesmoke;
-    text-align: center;
+.profile #user-favorite-list ul{
+    color:whitesmoke;
+    margin: 20px auto;
+    width: 380px;
+    float: right;
 }
 
-ul.game-cover li img{
-max-width: 220px;
-margin-top: 12px;
-margin-bottom: 12px;
+.profile #user-reviews-list h2 {
+    color:whitesmoke;
+    margin: 20px auto;
+    width: 300px;
+}
+div #user {
+    float: left;
+    width: 380px;
 }
 
-ul.game-cover {
-    margin: 80px auto;
-    margin-left: 120px;
-    display: block;
-    position: relative;
-    
 
-}
 
-ul.game-cover li p {
-    color: whitesmoke;
-    text-align: center;
-    font-style: italic;
-}
 
 /* Mobile styles */
 
@@ -130,8 +125,3 @@ ul.game-cover li p {
         float: none;
     }
 }
-
-
-
-
-
