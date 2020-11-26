@@ -10,7 +10,9 @@
     color: #000;
     
 } */
-
+#logout-btn {
+    cursor: pointer;
+}
 #notification {
     position: absolute; 
     left: 0; 
