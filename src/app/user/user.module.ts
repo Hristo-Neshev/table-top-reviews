@@ -4,11 +4,12 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
+import { MyRewiewsComponent } from './my-rewiews/my-rewiews.component';
 
 
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent, ProfileComponent],
+  declarations: [RegisterComponent, LoginComponent, ProfileComponent, MyRewiewsComponent],
   imports: [
     CommonModule,
     UserRoutingModule
