@@ -125,6 +125,7 @@ color: whitesmoke;
 
 .review ul {
     margin: 15px;
+    float: left;
 }
 
 .review ul li {
@@ -136,18 +137,11 @@ color: whitesmoke;
     background-color: #636869;
 }
 
-
-
-
-
-footer  {
-background-color: rgb(34, 33, 33);
-height: 60px;
-}
-footer p {
-    color: white;
-    text-align: center;
-    padding-top: 20px;
+#totalLikes {
+    float: right;
+    font-size: 22px;
+    padding-top: 10px;
+    
 }
 
 
