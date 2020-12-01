@@ -1,4 +1,5 @@
 <section id="main">
+     <!-- Notification -->
     <div *ngIf="!registerForm.get('username').valid && registerForm.get('username').touched" id="notification">
         <p>Username username must be at least 3 characters long!</p>
     </div>
@@ -11,6 +12,7 @@
     <div *ngIf="!registerForm.get('profilePictureUrl').valid && registerForm.get('profilePictureUrl').touched" id="notification">
         <p> Picture URL must starts with https:// or http://</p>
     </div>
+     <!-- Notification -->
     <div class="monopoly-background">
         <div id="form-container">
             <h2>Register</h2>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,6 @@ import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators }
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  private password: string;
   registerForm: FormGroup;
   constructor() { }
 

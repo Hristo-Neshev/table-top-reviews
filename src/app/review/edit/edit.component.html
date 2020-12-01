@@ -1,19 +1,31 @@
 <section id="main">
+    <!-- Notification -->
+    <div *ngIf="!editForm.get('title').valid && editForm.get('title').touched" id="notification">
+        <p> Title is required</p>
+    </div>
+    <div *ngIf="!editForm.get('imageUrl').valid && editForm.get('imageUrl').touched" id="notification">
+        <p> Picture URL must starts with https:// or http://</p>
+    </div>
+    <div *ngIf="!editForm.get('review-content').valid && editForm.get('review-content').touched" id="notification">
+        <p> The review length must be between 100 and 6000 characters long!</p>
+    </div>
+    <!-- Notification -->
     <div class="monopoly-background">
         <div id="form-container">
             <h2>Edit Review</h2>
-            <form class="forms-style" action="" method="POST">
-                <input type="text" placeholder="Game Title">
-                <input type="text" placeholder="Image Url">
-                <textarea name="review-text" id="review-content" cols="30" rows="10"></textarea>
+            <form class="forms-style" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+                <input type="text" placeholder="Game Title" formControlName="title">
+                <input type="text" placeholder="Image Url" formControlName="imageUrl">
+                <textarea name="review-text" id="review-content" cols="30" rows="10"formControlName="review-content"></textarea>
+
                 <div id="privacyControl">
                     <label for="public">Public</label>
-                    <input type="checkbox" value="public">
-                    
+                    <input type="checkbox" value="public" formControlName='public'>
                 </div>
-                <button type="submit">Create</button>
+                <button [disabled]="!editForm.valid">Edit</button>
+
             </form>
         </div>
-      
+
     </div>
 </section>

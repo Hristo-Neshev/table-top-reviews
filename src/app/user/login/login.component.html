@@ -1,11 +1,12 @@
-
 <section id="main">
+     <!-- Notification -->
     <div *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched" id="notification">
         <p>Username is required!</p>
     </div>
     <div *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" id="notification">
         <p>Password is required!</p>
     </div>
+     <!-- Notification -->
     <div class="monopoly-background">
         <div id="form-container">
             <h2>Login</h2>
