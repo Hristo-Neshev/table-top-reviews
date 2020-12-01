@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
 import { MyRewiewsComponent } from './my-rewiews/my-rewiews.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,7 +13,9 @@ import { MyRewiewsComponent } from './my-rewiews/my-rewiews.component';
   declarations: [RegisterComponent, LoginComponent, ProfileComponent, MyRewiewsComponent],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [RegisterComponent, LoginComponent, ProfileComponent]
 })

@@ -1,11 +1,18 @@
+
 <section id="main">
+    <div *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched" id="notification">
+        <p>Username is required!</p>
+    </div>
+    <div *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" id="notification">
+        <p>Password is required!</p>
+    </div>
     <div class="monopoly-background">
         <div id="form-container">
             <h2>Login</h2>
-            <form class="forms-style" action="" method="POST">
-                <input type="text" placeholder="Username">
-                <input type="text" placeholder="Password">
-                <button type="submit">Login</button>
+            <form class="forms-style" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <input type="text" placeholder="Username" formControlName="username">
+                <input type="password" placeholder="Password" formControlName="password">
+                <button [disabled]="!loginForm.valid">Login</button>
             </form>
         </div>
 
