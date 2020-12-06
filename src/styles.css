@@ -17,3 +17,6 @@
 
 
 }
+ body {
+    overflow-x: hidden;
+ }
