@@ -1,5 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -7,8 +9,9 @@ import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators }
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  httpError = null;
   registerForm: FormGroup;
-  constructor() { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -21,8 +24,20 @@ export class RegisterComponent implements OnInit {
 
 
   onSubmit() {
-    //console.log(this.registerForm.value);
-    console.log(this.registerForm.value);
+    const registerData = this.registerForm.value;
+    this.userService.register(registerData).subscribe(
+      response => {
+      this.router.navigate(['user/login']);
+
+    }, 
+    error => {
+      if(error.status == 409) {
+        this.httpError = 'Username is already in use!';
+      } else {
+        this.httpError = 'Unknown error has occurred! Please try again!'
+      }
+
+    })
   }
 
   public static matchValues(

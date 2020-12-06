@@ -12,6 +12,9 @@
     <div *ngIf="!registerForm.get('profilePictureUrl').valid && registerForm.get('profilePictureUrl').touched" id="notification">
         <p> Picture URL must starts with https:// or http://</p>
     </div>
+    <div *ngIf="httpError" id="notification">
+        <p>{{httpError}}</p>
+    </div>
      <!-- Notification -->
     <div class="monopoly-background">
         <div id="form-container">
