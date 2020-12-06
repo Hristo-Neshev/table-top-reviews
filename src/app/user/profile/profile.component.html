@@ -3,14 +3,14 @@
         <div class="container">
         <div class="profile">
             <div id="user">
-                <img src="https://s.abcnews.com/images/GMA/191211_gma_thunberg1_hpMain_16x9_992.jpg" alt="">
-                <h1>Username</h1>
+                <img src={{user.profilePictureUrl}} alt="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg">
+                <h1>{{user.username}}</h1>
             </div>
             <div id="user-reviews-list">
-                <h2>Username's reviews</h2>
+                <h2>Account information </h2>
                 <ul>
-                    <li>Pandemic</li>
-                    <li>Shadows over Camelot</li>
+                    <li>Created : {{createdDate}}</li>
+                    <li>Last online: {{lastLogin}}</li>
                 </ul>
             </div>
             <div id="user-favorite-list">
