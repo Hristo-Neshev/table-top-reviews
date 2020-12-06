@@ -6,6 +6,9 @@
     <div *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" id="notification">
         <p>Password is required!</p>
     </div>
+    <div *ngIf="httpError" id="notification">
+        <p>{{httpError}}</p>
+    </div>
      <!-- Notification -->
     <div class="monopoly-background">
         <div id="form-container">
