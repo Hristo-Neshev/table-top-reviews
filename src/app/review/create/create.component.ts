@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ReviewService } from '../review.service';
 
 @Component({
   selector: 'app-create',
@@ -8,7 +10,8 @@ import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators }
 })
 export class CreateComponent implements OnInit {
   createForm: FormGroup;
-  constructor() { }
+  constructor(private reviewService: ReviewService, private router: Router) { }
+  httpError = null;
 
   ngOnInit(): void {
     this.createForm = new FormGroup({
@@ -21,8 +24,14 @@ export class CreateComponent implements OnInit {
 
 
   onSubmit() {
-   
-    console.log(this.createForm.value);
+   const reviewData = this.createForm.value;
+    this.reviewService.create(reviewData).subscribe(response => {
+      console.log(response);
+      this.router.navigate(['user/myReviews']);
+    }, error => {
+      console.log(error);
+      this.httpError = 'Error has occurred. Please try again!';
+    });
   }
 
 

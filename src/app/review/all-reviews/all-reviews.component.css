@@ -61,10 +61,11 @@ div.monopoly-background {
 ul.game-cover li{
     border: 1px solid whitesmoke;
     border-radius: 6px;
-    max-width: 300px;
+    width: 300px;
     float: left;
     margin-right: 20px;
     margin-bottom: 10px;
+    height: 300px;
     
     padding: 10px 45px;
     list-style: none;

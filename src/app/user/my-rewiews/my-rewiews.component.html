@@ -4,31 +4,10 @@
             <a routerLink="/review/create">Create New Review</a>
         </div>
         <div id="list-container">
-           <ul>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-            <li><a routerLink="/review/details/1">Pandemic</a></li>
-           </ul>
-
+            <ul>
+                <li *ngFor="let review of myReviews"><a
+                        routerLink="/review/details/{{review.objectId}}">{{review.title}}</a></li>
+            </ul>
         </div>
     </div>
 </section>

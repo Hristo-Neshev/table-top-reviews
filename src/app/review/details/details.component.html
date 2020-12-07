@@ -1,20 +1,15 @@
 <section id="main">
     <div class="monopoly-background">
         <div class="review">
-            <h1>Pandemic</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
+            <h1>{{currentReview.title}}</h1>
+            <p>{{currentReview.content}}</p>
             <ul>
-                <li><a routerLink="/review/edit">Edit</a></li>
-                <li><a routerLink="/review/delete">Delete</a></li>
-                <li><a routerLink="review/like">Like</a></li>
+                <li><a routerLink="/review/edit/{{currentReview.objectId}}">Edit</a></li>
+                <li><a routerLink="/review/delete/{{currentReview.objectId}}">Delete</a></li>
+                <li><a routerLink="review/like/{{currentReview.objectId}}">Like</a></li>
             </ul>
-            <p id="totalLikes">Likes: 0</p>
+            <p id="creator">Creator: {{currentReview.creator}}</p>
+            <p id="totalLikes">Likes: {{currentReview.likes.length}}</p>
         </div>
  </div>
 </section>

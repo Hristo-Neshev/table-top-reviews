@@ -18,28 +18,15 @@
         <div class="recent-reviews">
             <h1>Most Recent Reviews</h1>
             <ul class="game-cover">
-                <li>
-                    <h3>Pandemic</h3>
-                    <a routerLink="/review/details/1"><img
-                            src="https://images-na.ssl-images-amazon.com/images/I/814F5EyoMoL._AC_SL1500_.jpg"
-                            alt=""></a>
-                    <p>Autor: Rainhard</p>
-                </li>
-                <li>
-                    <h3>Pandemic</h3>
-                    <a routerLink="/review/details/1"><img
-                            src="https://images-na.ssl-images-amazon.com/images/I/814F5EyoMoL._AC_SL1500_.jpg"
-                            alt=""></a>
-                    <p>Autor: Rainhard</p>
-                </li>
-                <li>
-                    <h3>Pandemic</h3>
-                    <a routerLink="/review/details/1"><img
-                            src="https://images-na.ssl-images-amazon.com/images/I/814F5EyoMoL._AC_SL1500_.jpg"
-                            alt=""></a>
-                    <p>Autor: Rainhard</p>
+                <li *ngFor="let review of recentReviews">
+                    <h3>{{review.title}}</h3>
+                    <a routerLink="/review/details/{{review.objectId}}"><img
+                            src={{review.imageUrl}}
+                            alt="game-image"></a>
+                    <p>Creator: {{review.creator}}</p>
                 </li>
             </ul>
         </div>
     </div>
 </section>
+              

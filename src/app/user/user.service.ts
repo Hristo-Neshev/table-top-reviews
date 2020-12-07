@@ -2,16 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-
-const applicationId = 'E8D3E40A-A09E-5083-FFCC-148DF1C3B000';
-const restApiKey = '93CF8EBB-7C52-4EBD-8BF0-02A793C9E24C';
+import { environment } from '../../environments/environment';
+const applicationId = environment.applicationId;
+const restApiKey = environment.restApiKey;
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   constructor(private http: HttpClient, private router: Router) { }
-  
+
   register(registerData) {
     const newUser = { username: registerData.username, password: registerData.password, profilePictureUrl: registerData.profilePictureUrl };
     return this.http.post(`https://api.backendless.com/${applicationId}/${restApiKey}/users/register`, newUser, {
@@ -27,11 +27,11 @@ export class UserService {
   }
 
   logout() {
-    const user =  JSON.parse(localStorage.getItem('userData'));
-    if(user) {
+    const user = JSON.parse(localStorage.getItem('userData'));
+    if (user) {
       this.http.get(`https://api.backendless.com/${applicationId}/${restApiKey}/users/logout`, {
         headers: {
-         "user-token": user['user-token']
+          "user-token": user['user-token']
         }
       }).subscribe(
         response => {
@@ -44,15 +44,15 @@ export class UserService {
         }
       );
     }
-   
+
   }
-  get loggedIn () {
+  get loggedIn() {
     return this.isLoggedValidation()
-  } 
+  }
 
   isLoggedValidation() {
     const user = JSON.parse(localStorage.getItem('userData'));
-    if(user) {
+    if (user) {
       return true;
     } else {
       return false;
@@ -60,5 +60,5 @@ export class UserService {
 
   }
 
-  
+
 }
