@@ -10,18 +10,24 @@ import { ReviewService } from '../review.service';
 export class DetailsComponent implements OnInit {
   id = null;
   currentReview = null;
+  currentUser = null;
+  isCreator = false;
   constructor(private reviewService: ReviewService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params.id;
-    console.log(this.id);
+    this.currentUser = JSON.parse(localStorage.getItem('userData'));
+
     this.reviewService.getReviewsById(this.id).subscribe(response => {
-      console.log(response);
       this.currentReview = response;
+
+      if (this.currentUser.username == this.currentReview.creator) {
+        this.isCreator = true;
+      }
     },
-    error => {
-      console.log(error);
-    });
+      error => {
+        console.log(error);
+      });
   }
 
 }

@@ -80,6 +80,7 @@ div.monopoly-background {
    list-style: none;
    padding: 4px;
    margin-bottom: 6px;
+   max-height: 100px;
       
   }
 
@@ -90,8 +91,25 @@ div.monopoly-background {
     font-size: 26px;
     z-index: 999;
    
-       
-   }
+    }
+
+    .inner-controls {
+        padding-left: 40%;
+    }
+
+    .inner-controls li  {
+        width: 120px;
+        float: left;
+        margin-right: 4px;
+    }
+
+    #edit-btn:hover{
+        color: blue;
+    }
+
+    #delete-btn:hover{
+        color: red;
+    }
 
    
 

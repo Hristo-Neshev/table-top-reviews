@@ -4,9 +4,7 @@
             <h1>{{currentReview.title}}</h1>
             <p>{{currentReview.content}}</p>
             <ul>
-                <li><a routerLink="/review/edit/{{currentReview.objectId}}">Edit</a></li>
-                <li><a routerLink="/review/delete/{{currentReview.objectId}}">Delete</a></li>
-                <li><a routerLink="review/like/{{currentReview.objectId}}">Like</a></li>
+                <li *ngIf="!isCreator"><a routerLink="/review/like/{{currentReview.objectId}}">Like</a></li>
             </ul>
             <p id="creator">Creator: {{currentReview.creator}}</p>
             <p id="totalLikes">Likes: {{currentReview.likes.length}}</p>

@@ -15,7 +15,6 @@ export class ProfileComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('userData'));
     this.createdDate = new Date(this.user.created).toLocaleDateString();
     this.lastLogin = new Date(this.user.lastLogin).toLocaleDateString();
-    console.log(this.user);
   }
 
 }

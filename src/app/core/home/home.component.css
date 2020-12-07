@@ -96,6 +96,7 @@ ul.game-cover li{
 ul.game-cover li {
     color: whitesmoke;
     text-align: center;
+    height: 400px;
 }
 
 ul.game-cover li img{

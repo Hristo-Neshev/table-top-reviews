@@ -6,7 +6,12 @@
         <div id="list-container">
             <ul>
                 <li *ngFor="let review of myReviews"><a
-                        routerLink="/review/details/{{review.objectId}}">{{review.title}}</a></li>
+                        routerLink="/review/details/{{review.objectId}}">{{review.title}}
+                        <ul class="inner-controls">
+                            <li><a id="edit-btn" routerLink="/review/edit/{{review.objectId}}">Edit</a></li>
+                            <li ><a id="delete-btn" (click)="onDelete(review.objectId)">Delete</a></li>
+                        </ul>
+                    </a></li>
             </ul>
         </div>
     </div>

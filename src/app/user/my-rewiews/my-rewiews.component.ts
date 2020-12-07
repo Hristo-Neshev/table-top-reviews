@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ReviewService } from 'src/app/review/review.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ReviewService } from 'src/app/review/review.service';
 })
 export class MyRewiewsComponent implements OnInit {
   myReviews = null;
-  constructor(private reviewService: ReviewService) { }
+  constructor(private reviewService: ReviewService, private router: Router) { }
 
   ngOnInit(): void {
     this.reviewService.getReviewsByCreator().subscribe(response => {
@@ -17,6 +18,16 @@ export class MyRewiewsComponent implements OnInit {
       error => {
         console.log(error);
       })
+  }
+
+  onDelete(id) {
+    this.reviewService.deleteReview(id).subscribe(response => {
+      console.log(response);
+      this.router.navigate(['user/myReviews'])
+    },
+    error => {
+      console.log(error);
+    })
   }
 
 }
