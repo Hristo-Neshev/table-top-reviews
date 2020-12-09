@@ -19,6 +19,7 @@ export class AllReviewsComponent implements OnInit {
       this.reviews = this.reviews.filter(review => review.public === true);
       this.reviews = this.reviews.sort((a,b)=> Number(b.created) - Number(a.created));
       this.isLoading = false;
+      console.log(this.reviews);
     },
     error => {
       console.log(error);

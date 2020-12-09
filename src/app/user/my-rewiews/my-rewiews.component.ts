@@ -8,6 +8,7 @@ import { ReviewService } from 'src/app/review/review.service';
   styleUrls: ['./my-rewiews.component.css']
 })
 export class MyRewiewsComponent implements OnInit {
+  currentUser = JSON.parse(localStorage.getItem('userData'));
   isLoading = false;
   myReviews = null;
   httpError = null;
@@ -17,6 +18,7 @@ export class MyRewiewsComponent implements OnInit {
     this.isLoading = true;
     this.reviewService.getReviewsByCreator().subscribe(response => {
       this.myReviews = response;
+      this.myReviews = this.myReviews.filter(review => review.creator === this.currentUser.username)
       this.isLoading = false;
     },
       error => {

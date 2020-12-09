@@ -35,7 +35,7 @@ export class ReviewService {
 
   getAllReviews() {
     this.currentUser = JSON.parse(localStorage.getItem('userData'));
-    return this.http.get(`https://api.backendless.com/${applicationId}/${restApiKey}/data/reviews`, {
+    return this.http.get(`https://api.backendless.com/${applicationId}/${restApiKey}/data/reviews?pageSize=100`, {
       headers: {
         "user-token": this.currentUser['user-token']
       }
@@ -44,7 +44,7 @@ export class ReviewService {
 
   getReviewsByCreator() {
     this.currentUser = JSON.parse(localStorage.getItem('userData'));
-    return this.http.get(`https://api.backendless.com/${applicationId}/${restApiKey}/data/reviews?where=creator%20%3D%20%27${this.currentUser.username}%27`,
+    return this.http.get(`https://api.backendless.com/${applicationId}/${restApiKey}/data/reviews?pageSize=100`,
       {
         headers: {
           "user-token": this.currentUser['user-token']
