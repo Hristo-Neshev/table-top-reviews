@@ -17,6 +17,7 @@ export class AllReviewsComponent implements OnInit {
     this.reviewService.getAllReviews().subscribe(response => {
       this.reviews = response;
       this.reviews = this.reviews.filter(review => review.public === true);
+      this.reviews = this.reviews.sort((a,b)=> Number(b.created) - Number(a.created));
       this.isLoading = false;
     },
     error => {

@@ -35,7 +35,6 @@ export class UserService {
         }
       }).subscribe(
         response => {
-          console.log(response);
           localStorage.removeItem('userData');
           this.router.navigate(['/']);
         },

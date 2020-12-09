@@ -8,6 +8,7 @@ import { ReviewService } from '../review.service';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
+  createdAt = null;
   alreadyLiked = false;
   isLoading = false;
   httpError = null;
@@ -24,6 +25,7 @@ export class DetailsComponent implements OnInit {
 
     this.reviewService.getReviewsById(this.id).subscribe(response => {
       this.currentReview = response;
+      this.createdAt = new Date(this.currentReview.created).toLocaleDateString();
       this.alreadyLiked =this.currentReview.likes.includes(this.currentUser.username);
       if (this.currentUser.username == this.currentReview.creator) {
         this.isCreator = true;
@@ -38,7 +40,6 @@ export class DetailsComponent implements OnInit {
 
   onLike() {
     this.reviewService.onLike(this.currentReview).subscribe(response => {
-      console.log(response);
       this.router.navigate([`review/allReviews`]);
     }, error => {
       console.log(error);

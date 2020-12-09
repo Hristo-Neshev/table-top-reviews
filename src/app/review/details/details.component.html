@@ -13,6 +13,7 @@
                 <li *ngIf="!isCreator && !alreadyLiked"><a style="cursor: pointer;" (click)="onLike()">Like</a></li>
             </ul>
             <p id="creator">Creator: {{currentReview.creator}}</p>
+            <p *ngIf="createdAt" id="createdAt">CreatedAt: {{createdAt}}</p>
             <p id="totalLikes">Likes: {{currentReview.likes.length}}</p>
         </div>
     </div>
