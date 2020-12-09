@@ -8,13 +8,16 @@ import { ReviewService } from 'src/app/review/review.service';
   styleUrls: ['./my-rewiews.component.css']
 })
 export class MyRewiewsComponent implements OnInit {
+  isLoading = false;
   myReviews = null;
   httpError = null;
   constructor(private reviewService: ReviewService, private router: Router) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.reviewService.getReviewsByCreator().subscribe(response => {
       this.myReviews = response;
+      this.isLoading = false;
     },
       error => {
         console.log(error);

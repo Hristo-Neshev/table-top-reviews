@@ -8,6 +8,7 @@ import { ReviewService } from '../review.service';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
+  isLoading = false;
   httpError = null;
   id = null;
   currentReview = null;
@@ -16,6 +17,7 @@ export class DetailsComponent implements OnInit {
   constructor(private reviewService: ReviewService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.id = this.activatedRoute.snapshot.params.id;
     this.currentUser = JSON.parse(localStorage.getItem('userData'));
 
@@ -25,6 +27,7 @@ export class DetailsComponent implements OnInit {
       if (this.currentUser.username == this.currentReview.creator) {
         this.isCreator = true;
       }
+      this.isLoading = false;
     },
       error => {
         console.log(error);

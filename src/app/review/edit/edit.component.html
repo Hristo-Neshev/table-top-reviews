@@ -16,6 +16,7 @@
 
     <!-- Notification -->
     <div class="monopoly-background">
+        <div *ngIf="isLoading" class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         <div id="form-container">
             <h2>Edit Review</h2>
             <form class="forms-style" [formGroup]="editForm" (ngSubmit)="onSubmit()">

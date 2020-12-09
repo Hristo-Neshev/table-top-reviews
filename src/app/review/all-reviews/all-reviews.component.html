@@ -5,6 +5,7 @@
             <p>{{httpError}}</p>
         </div>
         <!-- NOTIFICATIONS -->
+        <div *ngIf="isLoading" class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         <div class="recent-reviews">
             <h1>Table Top Reviews</h1>
             <ul class="game-cover">

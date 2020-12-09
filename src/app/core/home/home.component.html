@@ -19,6 +19,7 @@
 <!-- NOTIFICATIONS -->
 <section id="main" *ngIf='loggedIn'>
     <div class="monopoly-background">
+        <div *ngIf="isLoading" class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         <div class="recent-reviews">
             <h1>Most Recent Reviews</h1>
             <ul class="game-cover">

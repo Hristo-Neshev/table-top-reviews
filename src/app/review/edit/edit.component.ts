@@ -9,6 +9,7 @@ import { ReviewService } from '../review.service';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
+  isLoading = false;
   httpError = null;
   editForm: FormGroup;
   id = null;
@@ -17,6 +18,7 @@ export class EditComponent implements OnInit {
   constructor(private reviewService: ReviewService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.editForm = new FormGroup({
       'title': new FormControl(null, Validators.required),
       'imageUrl': new FormControl(null, Validators.pattern(/(http|https):\/\//)),
@@ -34,6 +36,7 @@ export class EditComponent implements OnInit {
           'review-content': this.currentReview.content,
           'public': this.currentReview.public
         });
+        this.isLoading = false;
     },
       error => {
         console.log(error);
