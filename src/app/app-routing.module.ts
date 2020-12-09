@@ -7,8 +7,7 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 const routes: Routes = [
   {path: '', pathMatch: 'full', component: HomeComponent},
   {path: 'about', component: AboutComponent}
-  // {path: '**', component: NotFoundComponent}
-];
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
