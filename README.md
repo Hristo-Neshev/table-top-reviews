@@ -1,27 +1,23 @@
 # TableTopReviews
+This project have Home, Register, Login and About pages open to anyone.
+In registration form all fields are required. If some field is empty or the data is not valid. submit button is disabled.
+Registered users have different home page with the most recent reviews. 
+Profile page shows user's profile picture and information about the account.
+My reviews page is the place where users can create and manage their reviews.
+If you like given review you can like it(if you aren't already).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
+
+# Project Architecture
+
+For this project i use Backedless for the Back-end.
+
+The project have 3 modules and every module have own routing. The modules are:
+            -Core module: includes about, home, header and not-found components.
+            -User module: includes register, login, profile, myReviews components and the UserService.
+            -Review module: includes allReviews, create, edit, details components and the ReviewService.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
