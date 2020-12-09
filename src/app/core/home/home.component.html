@@ -10,9 +10,13 @@
                 publishing software like Aldus PageMaker including versions of Lorem Ipsum.
             </p>
         </div>
- </div>
+    </div>
 </section>
-
+<!-- NOTIFICATIONS -->
+<div *ngIf="httpError" id="notification">
+    <p>{{httpError}}</p>
+</div>
+<!-- NOTIFICATIONS -->
 <section id="main" *ngIf='loggedIn'>
     <div class="monopoly-background">
         <div class="recent-reviews">
@@ -20,8 +24,7 @@
             <ul class="game-cover">
                 <li *ngFor="let review of recentReviews">
                     <h3>{{review.title}}</h3>
-                    <a routerLink="/review/details/{{review.objectId}}"><img
-                            src={{review.imageUrl}}
+                    <a routerLink="/review/details/{{review.objectId}}"><img src={{review.imageUrl}}
                             alt="game-image"></a>
                     <p>Creator: {{review.creator}}</p>
                 </li>
@@ -29,4 +32,3 @@
         </div>
     </div>
 </section>
-              

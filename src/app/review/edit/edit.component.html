@@ -9,6 +9,11 @@
     <div *ngIf="!editForm.get('review-content').valid && editForm.get('review-content').touched" id="notification">
         <p> The review length must be between 100 and 6000 characters long!</p>
     </div>
+
+    <div *ngIf="httpError" id="notification">
+        <p>{{httpError}}</p>
+    </div>
+
     <!-- Notification -->
     <div class="monopoly-background">
         <div id="form-container">
@@ -16,7 +21,8 @@
             <form class="forms-style" [formGroup]="editForm" (ngSubmit)="onSubmit()">
                 <input type="text" placeholder="Game Title" formControlName="title">
                 <input type="text" placeholder="Image Url" formControlName="imageUrl">
-                <textarea name="review-text" id="review-content" cols="30" rows="10"formControlName="review-content"></textarea>
+                <textarea name="review-text" id="review-content" cols="30" rows="10"
+                    formControlName="review-content"></textarea>
 
                 <div id="privacyControl">
                     <label for="public">Public</label>

@@ -1,12 +1,16 @@
 <section id="main">
     <div class="monopoly-background">
+        <!-- NOTIFICATIONS -->
+        <div *ngIf="httpError" id="notification">
+            <p>{{httpError}}</p>
+        </div>
+        <!-- NOTIFICATIONS -->
         <div class="recent-reviews">
             <h1>Table Top Reviews</h1>
             <ul class="game-cover">
                 <li *ngFor="let review of reviews">
                     <h3>{{review.title}}</h3>
-                    <a routerLink="/review/details/{{review.objectId}}"><img
-                            src={{review.imageUrl}}
+                    <a routerLink="/review/details/{{review.objectId}}"><img src={{review.imageUrl}}
                             alt="game-image"></a>
                     <p>Creator: {{review.creator}}</p>
                 </li>

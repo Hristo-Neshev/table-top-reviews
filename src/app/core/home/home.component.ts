@@ -10,6 +10,7 @@ import { UserService } from 'src/app/user/user.service';
 export class HomeComponent implements OnInit, DoCheck {
   loggedIn = null;
   recentReviews = null;
+  httpError = null;
   constructor(private userService: UserService, private reviewService: ReviewService) { }
 
   ngOnInit(): void {
@@ -23,6 +24,7 @@ export class HomeComponent implements OnInit, DoCheck {
       }, 
       error => {
         console.log(error);
+        this.httpError = 'Error has occurred!';
       })
     }
   }

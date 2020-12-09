@@ -8,6 +8,7 @@ import { ReviewService } from '../review.service';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
+  httpError = null;
   id = null;
   currentReview = null;
   currentUser = null;
@@ -27,6 +28,7 @@ export class DetailsComponent implements OnInit {
     },
       error => {
         console.log(error);
+        this.httpError = 'Error has occurred!'
       });
   }
 

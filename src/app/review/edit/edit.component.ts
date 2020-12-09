@@ -9,6 +9,7 @@ import { ReviewService } from '../review.service';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
+  httpError = null;
   editForm: FormGroup;
   id = null;
   currentReview = null;
@@ -36,6 +37,7 @@ export class EditComponent implements OnInit {
     },
       error => {
         console.log(error);
+        this.httpError = 'Error has occurred!'
       });
 
   }

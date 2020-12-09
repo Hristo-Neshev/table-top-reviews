@@ -8,6 +8,7 @@ import { ReviewService } from '../review.service';
 })
 export class AllReviewsComponent implements OnInit {
   reviews = null;
+  httpError = null;
   constructor(private reviewService: ReviewService) { }
 
   ngOnInit(): void {
@@ -17,6 +18,7 @@ export class AllReviewsComponent implements OnInit {
     },
     error => {
       console.log(error);
+      this.httpError = 'Error has occurred!';
     });
   }
 

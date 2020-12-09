@@ -9,6 +9,7 @@ import { ReviewService } from 'src/app/review/review.service';
 })
 export class MyRewiewsComponent implements OnInit {
   myReviews = null;
+  httpError = null;
   constructor(private reviewService: ReviewService, private router: Router) { }
 
   ngOnInit(): void {
@@ -23,10 +24,11 @@ export class MyRewiewsComponent implements OnInit {
   onDelete(id) {
     this.reviewService.deleteReview(id).subscribe(response => {
       console.log(response);
-      this.router.navigate(['user/myReviews'])
+      this.router.navigate(['user/myReviews']);
     },
     error => {
       console.log(error);
+      this.httpError = 'Error has occurred!'
     })
   }
 

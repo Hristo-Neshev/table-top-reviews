@@ -1,5 +1,10 @@
 <section id="main">
     <div class="monopoly-background">
+        <!-- NOTIFICATIONS -->
+        <div *ngIf="httpError" id="notification">
+            <p>{{httpError}}</p>
+        </div>
+        <!-- NOTIFICATIONS -->
         <div class="review">
             <h1>{{currentReview.title}}</h1>
             <p>{{currentReview.content}}</p>
@@ -9,5 +14,5 @@
             <p id="creator">Creator: {{currentReview.creator}}</p>
             <p id="totalLikes">Likes: {{currentReview.likes.length}}</p>
         </div>
- </div>
+    </div>
 </section>
