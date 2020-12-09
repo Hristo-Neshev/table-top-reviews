@@ -83,9 +83,29 @@ export class ReviewService {
     });
   }
 
+  onLike(currentReview) {
+    let reviewToLike = currentReview;
+    if(currentReview.creator === this.currentUser.username) {
+     return;
+    }
+    if(reviewToLike.likes.includes(this.currentUser.username)) {
+      return;
+    }
 
-
-
-
-
+    reviewToLike.likes.push(this.currentUser.username);
+    return this.http.put(`https://api.backendless.com/${applicationId}/${restApiKey}/data/reviews/${reviewToLike.objectId}`, reviewToLike,
+    {
+      headers: {
+        "user-token": this.currentUser['user-token']
+      }
+    });
 }
+
+  }
+
+
+
+
+
+
+

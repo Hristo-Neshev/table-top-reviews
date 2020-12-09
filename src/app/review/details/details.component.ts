@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { ReviewService } from '../review.service';
 
 @Component({
@@ -8,13 +8,14 @@ import { ReviewService } from '../review.service';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
+  alreadyLiked = false;
   isLoading = false;
   httpError = null;
   id = null;
   currentReview = null;
   currentUser = null;
   isCreator = false;
-  constructor(private reviewService: ReviewService, private activatedRoute: ActivatedRoute) { }
+  constructor(private reviewService: ReviewService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -23,7 +24,7 @@ export class DetailsComponent implements OnInit {
 
     this.reviewService.getReviewsById(this.id).subscribe(response => {
       this.currentReview = response;
-
+      this.alreadyLiked =this.currentReview.likes.includes(this.currentUser.username);
       if (this.currentUser.username == this.currentReview.creator) {
         this.isCreator = true;
       }
@@ -33,6 +34,16 @@ export class DetailsComponent implements OnInit {
         console.log(error);
         this.httpError = 'Error has occurred!'
       });
+  }
+
+  onLike() {
+    this.reviewService.onLike(this.currentReview).subscribe(response => {
+      console.log(response);
+      this.router.navigate([`review/allReviews`]);
+    }, error => {
+      console.log(error);
+      this.httpError = 'Error has occurred!';
+    })
   }
 
 }

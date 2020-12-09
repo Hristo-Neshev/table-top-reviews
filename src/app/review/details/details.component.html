@@ -10,7 +10,7 @@
             <h1>{{currentReview.title}}</h1>
             <p>{{currentReview.content}}</p>
             <ul>
-                <li *ngIf="!isCreator"><a routerLink="/review/like/{{currentReview.objectId}}">Like</a></li>
+                <li *ngIf="!isCreator && !alreadyLiked"><a style="cursor: pointer;" (click)="onLike()">Like</a></li>
             </ul>
             <p id="creator">Creator: {{currentReview.creator}}</p>
             <p id="totalLikes">Likes: {{currentReview.likes.length}}</p>
