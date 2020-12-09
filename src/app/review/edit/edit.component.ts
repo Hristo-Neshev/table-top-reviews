@@ -43,7 +43,7 @@ export class EditComponent implements OnInit {
   onSubmit() {
    this.reviewService.edit(this.id, this.editForm.value).subscribe(response => {
     console.log(response);
-    this.router.navigate([`review/details/${this.id}`])
+    this.router.navigate([`user/myReviews`])
    }, error => {
     console.log(error);
    })

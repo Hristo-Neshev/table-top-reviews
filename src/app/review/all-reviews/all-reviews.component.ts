@@ -13,6 +13,7 @@ export class AllReviewsComponent implements OnInit {
   ngOnInit(): void {
     this.reviewService.getAllReviews().subscribe(response => {
       this.reviews = response;
+      this.reviews = this.reviews.filter(review => review.public === true);
     },
     error => {
       console.log(error);

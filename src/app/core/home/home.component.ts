@@ -17,8 +17,9 @@ export class HomeComponent implements OnInit, DoCheck {
     if(this.loggedIn) {
       this.reviewService.getAllReviews().subscribe(response => {
          this.recentReviews = response;
+         this.recentReviews = this.recentReviews.filter(a => a.public == true);
          this.recentReviews = this.recentReviews.sort((a,b) => Number(b.created) - Number(a.created)).slice(0,3);
-        console.log(this.recentReviews);
+        
       }, 
       error => {
         console.log(error);
