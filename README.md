@@ -21,3 +21,14 @@ The project have 3 modules and every module have own routing. The modules are:
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 
+# Future of the project
+
+Back-end : Creating custom API with Node(Express) and MongoDb(mongoose);
+
+Refactoring : - Add more use of types in typescript. 
+              - Update state management(with ngRx).
+              -implement lazy loading.
+
+Adding new functionalities like search, sortBy(in Reviews page), user types(admin and regular user) and more.
+
+Also i planing to add two big sections in the project: Forum and Market place.
